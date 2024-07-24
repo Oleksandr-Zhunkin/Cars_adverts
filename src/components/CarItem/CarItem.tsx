@@ -5,10 +5,15 @@ import ActiveFavoriteIcon from "../Icons/ActiveFavoriteIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavoriteCars } from "../../redux/cars/selectors";
 import { useState } from "react";
-import { addToFavorite, removeFromFavorite } from "../../redux/cars/slice";
+import {
+  addSelectedCar,
+  addToFavorite,
+  removeFromFavorite,
+} from "../../redux/cars/slice";
 
-const CarItem = ({ car }: PropCar) => {
+const CarItem = ({ car, setIsOpen }: PropCar) => {
   const favoriteCars = useSelector(selectFavoriteCars);
+
   const [isFavorite, setIsFavorite] = useState(() => {
     return favoriteCars.some((item) => item.id === car.id);
   });
@@ -24,6 +29,11 @@ const CarItem = ({ car }: PropCar) => {
       setIsFavorite(false);
       dispatch(removeFromFavorite(car.id));
     }
+  };
+
+  const handleOpenModal = () => {
+    dispatch(addSelectedCar(car));
+    setIsOpen(true);
   };
 
   return (
@@ -60,6 +70,7 @@ const CarItem = ({ car }: PropCar) => {
         />
       </div>
       <button
+        onClick={handleOpenModal}
         type="button"
         className="flex py-3 bg-[#3470ff] w-[100%] justify-center items-center text-white rounded-xl text-[14px] font-semibold leading-[1.43rem] hover:bg-[#0b44cd]"
       >

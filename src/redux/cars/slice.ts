@@ -6,6 +6,7 @@ const initialState: CarsState = {
   cars: [],
   favorite: [],
   page: 1,
+  selectedCar: null,
   isLoadBtn: true,
   isLoading: false,
   isError: false,
@@ -27,6 +28,12 @@ const slice = createSlice({
       );
       state.favorite.splice(index, 1);
     },
+    addSelectedCar(state, action) {
+      state.selectedCar = action.payload;
+    },
+    removeSelectedCar(state) {
+      state.selectedCar = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(carsThunk.fulfilled, (state, action) => {
@@ -43,5 +50,11 @@ const slice = createSlice({
   },
 });
 
-export const { changePage, addToFavorite, removeFromFavorite } = slice.actions;
+export const {
+  changePage,
+  addToFavorite,
+  removeFromFavorite,
+  addSelectedCar,
+  removeSelectedCar,
+} = slice.actions;
 export const carsSlice = slice.reducer;

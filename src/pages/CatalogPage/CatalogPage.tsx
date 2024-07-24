@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { carsThunk } from "../../redux/cars/operations";
 import {
@@ -8,7 +8,6 @@ import {
 } from "../../redux/cars/selectors";
 import CarsList from "../../components/CarsList/CarsList";
 import { AppDispatch } from "../../redux/store";
-import { number } from "prop-types";
 import { changePage } from "../../redux/cars/slice";
 
 const CatalogPage = () => {

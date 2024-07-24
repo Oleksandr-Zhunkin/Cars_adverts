@@ -21,6 +21,7 @@ export interface CarsState {
   cars: Car[];
   favorite: Car[];
   page: number;
+  selectedCar: Car | null;
   isLoadBtn: boolean;
   isLoading: boolean;
   isError: boolean;

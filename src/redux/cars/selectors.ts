@@ -1,3 +1,4 @@
+import { Car } from "../../types/types";
 import { RootState } from "./../store";
 
 export const selectCars = (state: RootState) => state.rootReducer.cars.cars;
@@ -10,3 +11,6 @@ export const selectPage = (state: RootState): number =>
 
 export const selectLoadBtn = (state: RootState): boolean =>
   state.rootReducer.cars.isLoadBtn;
+
+export const selectedCarForModal = (state: RootState): Car | null =>
+  state.rootReducer.cars.selectedCar;
