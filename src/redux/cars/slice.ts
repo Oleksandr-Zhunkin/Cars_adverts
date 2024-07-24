@@ -15,19 +15,27 @@ const slice = createSlice({
   name: "cars",
   initialState,
   reducers: {
-    changePage(state, action) {
-      state.page = action.payload;
+    changePage(state) {
+      state.page = state.page + 1;
+    },
+    addToFavorite(state, action) {
+      state.favorite = [...state.favorite, action.payload];
+    },
+    removeFromFavorite(state, action) {
+      const index = state.favorite.findIndex(
+        (item) => item.id === action.payload
+      );
+      state.favorite.splice(index, 1);
     },
   },
   extraReducers: (builder) => {
     builder.addCase(carsThunk.fulfilled, (state, action) => {
+      if (state.cars.length > 0) {
+        state.cars = [...state.cars, ...action.payload];
+      }
       if (state.cars.length === 0) {
         state.cars = action.payload;
       }
-
-      state.cars = state.cars.map((car) =>
-        car.id === action.payload.id ? { ...car, ...action.payload } : car
-      );
       if (action.payload.length === 0 || action.payload.length < 12) {
         state.isLoadBtn = false;
       }
@@ -35,4 +43,5 @@ const slice = createSlice({
   },
 });
 
+export const { changePage, addToFavorite, removeFromFavorite } = slice.actions;
 export const carsSlice = slice.reducer;
