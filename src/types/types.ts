@@ -26,3 +26,20 @@ export interface CarsState {
   isLoading: boolean;
   isError: boolean;
 }
+
+export interface FiltersState {
+  filters: {
+    brand: string;
+    pricePerHour: null | number;
+    minRun: null | number;
+    maxRun: null | number;
+  };
+  allCars: Car[];
+  brands: string[];
+  prices: string[];
+}
+
+export interface Brand {
+  id: number;
+  make: string;
+}

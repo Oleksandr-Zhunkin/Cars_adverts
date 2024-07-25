@@ -21,16 +21,9 @@ const carsConfig = {
   whitelist: ["favorite"],
 };
 
-const filtersConfig = {
-  key: "filters",
-  version: 1,
-  storage,
-  whitelist: ["filters"],
-};
-
 const rootReducer = combineReducers({
   cars: persistReducer(carsConfig, carsSlice),
-  filters: persistReducer(filtersConfig, filtersSlice),
+  filters: filtersSlice,
 });
 
 export const store = configureStore({
