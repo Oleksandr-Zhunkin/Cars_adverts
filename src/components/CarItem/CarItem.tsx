@@ -43,11 +43,11 @@ const CarItem = ({ car, setIsOpen }: PropCar) => {
         src={car.img}
         alt={car.description}
       />
-      <div className="flex justify-between mb-2 text-[16px] font-medium leading-6 text-[#121417]">
-        <p>
+      <div className="flex justify-between mb-2 text-[16px] font-medium leading-6 ">
+        <h3>
           {car.make} <span className="text-[#3470ff]">{car.model}</span>,{" "}
           {car.year}
-        </p>
+        </h3>
         <p>{car.rentalPrice}</p>
       </div>
       <div className=" text-[12px] leading-6 text-[#121417] text-opacity-50 mb-7">

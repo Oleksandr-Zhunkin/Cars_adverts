@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  color: #121417;
+}
+
+.no_scroll {
+  overflow: hidden !important;
+}

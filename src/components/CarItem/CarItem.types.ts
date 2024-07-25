@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { Car } from "../../types/types";
 
 export type PropCar = {
