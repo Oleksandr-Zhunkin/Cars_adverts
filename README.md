@@ -15,6 +15,9 @@ Car Catalog:
 -Load more functionality (displays 12 ads initially).
 -Filter cars by brand, rental price, and mileage range.
 
+![image](https://github.com/user-attachments/assets/9e2df0ee-a972-45de-984a-919103131a37)
+
+
 Favorites:
 
 -Add ads to favorites using a heart icon.
