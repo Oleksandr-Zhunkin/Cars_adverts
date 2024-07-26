@@ -36,7 +36,7 @@ export interface FiltersState {
   };
   allCars: Car[];
   brands: string[];
-  prices: string[];
+  prices: number[];
 }
 
 export interface Brand {

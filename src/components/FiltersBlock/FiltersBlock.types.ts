@@ -1,4 +1,6 @@
 export type FormData = {
   carBrand: string;
-  price: number;
+  price: string;
+  minRun: number;
+  maxRun: number;
 };

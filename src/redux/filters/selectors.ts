@@ -17,10 +17,23 @@ export const selectMaxRun = (state: RootState) =>
   state.rootReducer.filters.filters.maxRun;
 
 export const selectFilteredCars = createSelector(
-  [selectAllCars, selectSearchBrand],
-  (cars, brand) => {
-    return cars?.filter((car) =>
-      car.make.toLowerCase().includes(brand?.toLowerCase())
-    );
+  [
+    selectAllCars,
+    selectSearchBrand,
+    selectPricePerHour,
+    selectMinRun,
+    selectMaxRun,
+  ],
+  (cars, brand, price, minRun, maxRun) => {
+    return cars?.filter((car) => {
+      const brandFilter =
+        !brand || car.make.toLowerCase().includes(brand.toLowerCase());
+      const priceFilter =
+        !price || Number(car.rentalPrice?.slice(1)) <= Number(price);
+      const minFilter = !minRun || car.mileage >= Number(minRun);
+      const maxFilter = !maxRun || car.mileage <= Number(maxRun);
+
+      return brandFilter && priceFilter && minFilter && maxFilter;
+    });
   }
 );

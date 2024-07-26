@@ -21,21 +21,37 @@ const slice = createSlice({
     searchForBrand(state, action) {
       state.filters.brand = action.payload;
     },
+    searchForPrice(state, action) {
+      state.filters.pricePerHour = action.payload;
+    },
+    searchForMinRun(state, action) {
+      state.filters.minRun = action.payload;
+    },
+    searchForMaxRun(state, action) {
+      state.filters.maxRun = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(filtersDataThunk.fulfilled, (state, action) => {
       state.allCars = action.payload;
       const allBrands = state.allCars.map((car: Car) => car.make);
-      const allPrices = state.allCars.map((car: Car) => car.rentalPrice);
+      const allPrices = state.allCars.map((car: Car) =>
+        Number(car.rentalPrice.slice(1))
+      );
       state.brands = allBrands.filter(
         (item: string, index: number) => allBrands.indexOf(item) === index
       );
       state.prices = allPrices.filter(
-        (item: string, index: number) => allPrices.indexOf(item) === index
+        (item: number, index: number) => allPrices.indexOf(item) === index
       );
     });
   },
 });
 
-export const { searchForBrand } = slice.actions;
+export const {
+  searchForBrand,
+  searchForPrice,
+  searchForMinRun,
+  searchForMaxRun,
+} = slice.actions;
 export const filtersSlice = slice.reducer;

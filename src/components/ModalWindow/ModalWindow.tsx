@@ -18,8 +18,8 @@ const ModalWindow = ({ children, isOpen, closeModal }: PropModal) => {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        className=" fixed top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] w-[541px] transition-transform duration-300 ease-in-out overflow-hidden py-[150px]  "
-        closeTimeoutMS={300}
+        className=" fixed top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] w-[541px] overflow-hidden py-[150px]  "
+        closeTimeoutMS={0}
         overlayClassName={s.overlay}
         contentLabel="Example Modal"
       >
