@@ -160,7 +160,7 @@ const FiltersBlock = () => {
             htmlFor="carBrand"
             className=" font-medium text-[14px] leading-[1.3rem] text-[#8a8a89] mb-2"
           >
-            First Name
+            Car brand
           </label>
           <Controller
             name="carBrand"
