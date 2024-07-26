@@ -14,3 +14,8 @@ export const selectLoadBtn = (state: RootState): boolean =>
 
 export const selectedCarForModal = (state: RootState): Car | null =>
   state.rootReducer.cars.selectedCar;
+
+export const selectLoading = (state: RootState) =>
+  state.rootReducer.cars.isLoading;
+
+export const selectError = (state: RootState) => state.rootReducer.cars.isError;

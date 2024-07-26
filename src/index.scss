@@ -9,3 +9,8 @@ body {
 .no_scroll {
   overflow: hidden !important;
 }
+
+.collapse-plus > .collapse-title:after {
+  top: 1.8rem;
+  right: 50px;
+}

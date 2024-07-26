@@ -1,26 +1,35 @@
 import { NavLink } from "react-router-dom";
+import Logo from "../Icons/Logo";
+import s from "./Navigation.module.scss";
+import clsx from "clsx";
+
+interface LinkClassProps {
+  isActive: boolean;
+}
+
+const buildLinkClass = ({ isActive }: LinkClassProps) => {
+  return clsx(s.link, isActive && s.active);
+};
 
 const Navigation = () => {
   return (
-    <header className="flex gap-10 absolute p-4">
-      <NavLink
-        className="border-solid border-2 border-[#3470ff] p-[10px] px-[20px] rounded-[12px] text-[#3470ff] hover:text-white hover:bg-[#3470ff]"
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        className="border-solid border-2 border-[#3470ff] p-[10px] px-[20px] rounded-[12px] text-[#3470ff] hover:text-white hover:bg-[#3470ff]"
-        to="/catalog"
-      >
-        Catalog
-      </NavLink>
-      <NavLink
-        className="border-solid border-2 border-[#3470ff] p-[10px] px-[20px] rounded-[12px] text-[#3470ff] hover:text-white hover:bg-[#3470ff]"
-        to="/favorites"
-      >
-        Favorites
-      </NavLink>
+    <header className={s.header}>
+      <div>
+        <NavLink to="/">
+          <Logo />
+        </NavLink>
+      </div>
+      <div className="flex gap-6 ml-auto">
+        <NavLink className={buildLinkClass} to="/">
+          Home
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/catalog">
+          Catalog
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/favorites">
+          Favorites
+        </NavLink>
+      </div>
     </header>
   );
 };

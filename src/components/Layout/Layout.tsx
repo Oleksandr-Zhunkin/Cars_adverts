@@ -6,9 +6,8 @@ import Container from "../Container/Container";
 const Layout = () => {
   return (
     <>
-      <Container>
-        <Navigation />
-      </Container>
+      <Navigation />
+
       <Section>
         <Container>
           <Outlet />

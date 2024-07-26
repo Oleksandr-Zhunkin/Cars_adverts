@@ -10,6 +10,7 @@ import {
   addToFavorite,
   removeFromFavorite,
 } from "../../redux/cars/slice";
+import toast from "react-hot-toast";
 
 const CarItem = ({ car, setIsOpen }: PropCar) => {
   const favoriteCars = useSelector(selectFavoriteCars);
@@ -22,10 +23,12 @@ const CarItem = ({ car, setIsOpen }: PropCar) => {
 
   const toggleFavoriteCar = () => {
     if (isFavorite === false) {
+      toast.success("The ad has been added to favorites");
       setIsFavorite(true);
       dispatch(addToFavorite(car));
     }
     if (isFavorite === true) {
+      toast.success("The ad has been removed from favorites");
       setIsFavorite(false);
       dispatch(removeFromFavorite(car.id));
     }

@@ -4,6 +4,7 @@ import { carsThunk } from "../../redux/cars/operations";
 import {
   selectCars,
   selectLoadBtn,
+  selectLoading,
   selectPage,
 } from "../../redux/cars/selectors";
 import CarsList from "../../components/CarsList/CarsList";
@@ -14,6 +15,7 @@ import {
   selectFilteredCars,
   selectSearchBrand,
 } from "../../redux/filters/selectors";
+import Loader from "../../components/Loader/Loader";
 
 const CatalogPage = () => {
   const page = useSelector(selectPage);
@@ -21,6 +23,7 @@ const CatalogPage = () => {
   const isLoadmoreBtn = useSelector(selectLoadBtn);
   const searchValue = useSelector(selectSearchBrand);
   const filteredCars = useSelector(selectFilteredCars);
+  const isLoading = useSelector(selectLoading);
 
   const dispatch = useDispatch() as AppDispatch;
 
@@ -32,7 +35,9 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(carsThunk(page));
   }, []);
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <FiltersBlock />
       <CarsList cars={searchValue === "" ? cars : filteredCars} />

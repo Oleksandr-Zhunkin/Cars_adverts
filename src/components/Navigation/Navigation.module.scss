@@ -1,0 +1,33 @@
+.link {
+  width: 136px;
+  height: 48px;
+  padding: 14px 0 14px 0;
+  gap: 0px;
+  border-radius: 12px;
+  border: 1px solid #3470ff;
+  color: #3470ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.link:hover,
+.link:focus {
+  background-color: #3470ff;
+  color: white;
+}
+
+.active {
+  background-color: #3470ff;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 150px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}

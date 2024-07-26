@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { carsThunk } from "./operations";
-import { CarsState } from "../../types/types";
+import { Car, CarsState } from "../../types/types";
 
 const initialState: CarsState = {
   cars: [],
@@ -36,17 +36,25 @@ const slice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(carsThunk.fulfilled, (state, action) => {
-      if (state.cars.length > 0) {
-        state.cars = [...state.cars, ...action.payload];
-      }
-      if (state.cars.length === 0) {
-        state.cars = action.payload;
-      }
-      if (action.payload.length === 0 || action.payload.length < 12) {
-        state.isLoadBtn = false;
-      }
-    });
+    builder
+      .addCase(carsThunk.fulfilled, (state, action) => {
+        const newCars = action.payload.filter(
+          (newCar: Car) =>
+            !state.cars.some((existingCar) => existingCar.id === newCar.id)
+        );
+        state.cars = [...state.cars, ...newCars];
+        if (action.payload.length === 0 || action.payload.length < 12) {
+          state.isLoadBtn = false;
+        }
+        state.isLoading = false;
+      })
+      .addCase(carsThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(carsThunk.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+      });
   },
 });
 

@@ -165,7 +165,7 @@ const FiltersBlock = () => {
           <Controller
             name="carBrand"
             control={control}
-            defaultValue=""
+            defaultValue="All models"
             render={({ field }) => (
               <Select
                 {...field}
