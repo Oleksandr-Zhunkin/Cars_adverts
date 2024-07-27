@@ -16,12 +16,12 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      <section className="py-10">
+      <section className="py-10 ">
         <h2 className="font-medium text-[32px] text-[#3470ff] text-center mb-[88px]">
           OUR MISSION
         </h2>
         <div className="flex">
-          <p className="font-normal text-[24px] text-[#121417] text-opacity-50 mr-auto w-[570px]">
+          <p className="font-normal text-[24px] text-[#121417] text-opacity-50 mr-auto min-w-[570px] w-[570px]">
             At Easy Rent, we are dedicated to providing a seamless and reliable
             car rental experience. Since our inception, we have committed to
             offering a diverse fleet of well-maintained vehicles, exceptional
@@ -32,7 +32,7 @@ const HomePage = () => {
             Our goal is to make every ride safe, comfortable, and enjoyable.
           </p>
           <img
-            className="absolute right-0"
+            className="absolute right-0 left-[747px]"
             src={secondImg}
             alt="car on the road"
           />
