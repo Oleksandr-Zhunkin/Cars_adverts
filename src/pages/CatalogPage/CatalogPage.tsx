@@ -38,7 +38,7 @@ const CatalogPage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <>
+    <div>
       <FiltersBlock />
       <CarsList cars={searchValue === "" ? cars : filteredCars} />
       {isLoadmoreBtn && searchValue === "" && (
@@ -50,7 +50,7 @@ const CatalogPage = () => {
           Load more
         </button>
       )}
-    </>
+    </div>
   );
 };
 
