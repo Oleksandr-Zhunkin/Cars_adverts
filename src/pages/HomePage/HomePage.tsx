@@ -1,13 +1,5 @@
-import "react-accessible-accordion/dist/fancy-example.css";
 import firstImg from "../../image/1-car.png";
 import secondImg from "../../image/2-car.png";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
 
 const HomePage = () => {
   return (

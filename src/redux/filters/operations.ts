@@ -1,9 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { carsApi } from "../../api/carsApi";
 import { AxiosError } from "axios";
-import { Car } from "../../types/types";
+import { FiltersData } from "../../types/types";
 
-export type FiltersData = Car[];
 export const filtersDataThunk = createAsyncThunk<FiltersData, void>(
   "filters",
   async (_, thunkApi: any) => {

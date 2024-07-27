@@ -43,3 +43,5 @@ export interface Brand {
   id: number;
   make: string;
 }
+
+export type FiltersData = Car[];
