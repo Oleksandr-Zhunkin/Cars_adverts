@@ -5,7 +5,11 @@ const HomePage = () => {
   return (
     <>
       <section className=" py-10 flex ">
-        <img className="absolute left-0 mr-[150px]" src={firstImg} alt="cars" />
+        <img
+          className="absolute left-0 mr-[150px] min-w-[836px]"
+          src={firstImg}
+          alt="cars"
+        />
         <div className="py-[50px] ml-auto">
           <h1 className=" font-semibold text-[100px] text-[#121417]  ">
             <span className="text-[#3470ff]">Easy</span> <br /> Rent Car
@@ -32,7 +36,7 @@ const HomePage = () => {
             Our goal is to make every ride safe, comfortable, and enjoyable.
           </p>
           <img
-            className="absolute right-0 left-[747px]"
+            className="absolute right-0 left-[747px] min-w-[693px]"
             src={secondImg}
             alt="car on the road"
           />
