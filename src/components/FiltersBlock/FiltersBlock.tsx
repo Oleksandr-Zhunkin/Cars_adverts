@@ -2,7 +2,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { selectBrands, selectPrices } from "../../redux/filters/selectors";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { filtersDataThunk } from "../../redux/filters/operations";
 import { AppDispatch } from "../../redux/store";
 import { FormData } from "./FiltersBlock.types";
@@ -13,6 +13,8 @@ import {
   searchForPrice,
 } from "../../redux/filters/slice";
 import { carsThunk } from "../../redux/cars/operations";
+import ArrowDown from "../Icons/ArrowDown";
+import ArrowUp from "../Icons/ArrowUp";
 
 const customStyles = {
   control: (provided: any) => ({
@@ -35,10 +37,13 @@ const customStyles = {
     lineHeight: "1.11",
     fontWeight: "500",
     fontSize: "18px",
+
+    display: "flex",
+    alignItems: "center",
   }),
   valueContainer: (provided: any) => ({
     ...provided,
-    padding: "0 6px",
+    padding: "14px 18px",
     color: "#121417",
     lineHeight: "1.11",
     fontWeight: "500",
@@ -55,7 +60,7 @@ const customStyles = {
   }),
   indicatorsContainer: (provided: any) => ({
     ...provided,
-    height: "",
+    display: "none",
   }),
 
   singleValue: (provided: any) => ({
@@ -103,6 +108,22 @@ const customStyles = {
 };
 
 const FiltersBlock = () => {
+  const [arrowBrand, setArrowBrand] = useState(false);
+  const [arrowPrice, setArrowPrice] = useState(false);
+
+  const setArrowDownBrand = () => {
+    setArrowBrand(false);
+  };
+  const setArrowUpBrand = () => {
+    setArrowBrand(true);
+  };
+  const setArrowDownPrice = () => {
+    setArrowPrice(false);
+  };
+  const setArrowUpPrice = () => {
+    setArrowPrice(true);
+  };
+
   const { register, handleSubmit, reset, control } = useForm<FormData>();
 
   const dispatch = useDispatch<AppDispatch>();
@@ -162,19 +183,26 @@ const FiltersBlock = () => {
           >
             Car brand
           </label>
-          <Controller
-            name="carBrand"
-            control={control}
-            defaultValue="All models"
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={brands}
-                styles={customStyles}
-                placeholder="Enter the text"
-              />
-            )}
-          />
+          <div className="relative">
+            <Controller
+              name="carBrand"
+              control={control}
+              defaultValue="All models"
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  onMenuOpen={setArrowUpBrand}
+                  onMenuClose={setArrowDownBrand}
+                  options={brands}
+                  styles={customStyles}
+                  placeholder="Enter the text"
+                />
+              )}
+            />
+            <span className="absolute right-[18px] top-[20px]">
+              {arrowBrand ? <ArrowUp /> : <ArrowDown />}
+            </span>
+          </div>
         </div>
         <div className="flex flex-col w-[125px]">
           <label
@@ -183,20 +211,28 @@ const FiltersBlock = () => {
           >
             Price/ 1 hour
           </label>
-          <Controller
-            name="price"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={prices}
-                value={field.value}
-                styles={customStyles}
-                placeholder={`To ${field.value}$`}
-              />
-            )}
-          />
+          <div className="relative">
+            <Controller
+              name="price"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  onMenuOpen={setArrowUpPrice}
+                  onMenuClose={setArrowDownPrice}
+                  options={prices}
+                  value={field.value}
+                  styles={customStyles}
+                  placeholder={`To ${field.value}$`}
+                />
+              )}
+            />
+
+            <span className="absolute right-[18px] top-[20px]">
+              {arrowPrice ? <ArrowUp /> : <ArrowDown />}
+            </span>
+          </div>
         </div>
         <div>
           <label className=" font-medium text-[14px] leading-[1.3rem] text-[#8a8a89]">
