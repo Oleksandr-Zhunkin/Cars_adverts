@@ -38,7 +38,7 @@ const CatalogPage = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <div>
+    <div className="min-w-[1440px]">
       <FiltersBlock />
       <CarsList cars={searchValue === "" ? cars : filteredCars} />
       {isLoadmoreBtn && searchValue === "" && (
