@@ -11,7 +11,9 @@ Homepage:
 -Frequently Asked Questions (FAQs) section.
 
 ![image](https://github.com/user-attachments/assets/80200565-ee2d-4cdb-84d1-57e1813f9710)
+
 ![image](https://github.com/user-attachments/assets/8723f225-bf70-463e-aa5b-90b40f5972fd)
+
 ![image](https://github.com/user-attachments/assets/f4c0507a-7ccc-4158-bcfe-2b51315b4eea)
 
 Car Catalog:
@@ -23,6 +25,7 @@ Car Catalog:
 -Filter cars by brand, rental price, and mileage range.
 
 ![image](https://github.com/user-attachments/assets/c20837ca-e2a6-4817-9388-b0e1a9610b1a)
+
 ![image](https://github.com/user-attachments/assets/652c6b51-7954-4aec-8963-61f6d09fd9c3)
 
 Favorites:
