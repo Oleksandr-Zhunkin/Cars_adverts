@@ -24,7 +24,8 @@ Car Catalog:
 
 -Filter cars by brand, rental price, and mileage range.
 
-![image](https://github.com/user-attachments/assets/c20837ca-e2a6-4817-9388-b0e1a9610b1a)
+![image](https://github.com/user-attachments/assets/5e593770-2602-4ee4-9ae9-86d2026a203e)
+
 
 ![image](https://github.com/user-attachments/assets/652c6b51-7954-4aec-8963-61f6d09fd9c3)
 
