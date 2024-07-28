@@ -4,7 +4,7 @@ import secondImg from "../../image/2-car.png";
 const HomePage = () => {
   return (
     <>
-      <section className=" py-10 flex ">
+      <section className=" py-10 flex h-[531px] ">
         <img
           className="absolute left-0 mr-[150px] min-w-[836px]"
           src={firstImg}
@@ -25,7 +25,7 @@ const HomePage = () => {
           OUR MISSION
         </h2>
         <div className="flex">
-          <p className="font-normal text-[24px] text-[#121417] text-opacity-50 mr-auto min-w-[570px] w-[570px]">
+          <p className="font-normal text-[24px] text-[#121417] h-[414px] text-opacity-50 mr-auto min-w-[570px] w-[570px]">
             At Easy Rent, we are dedicated to providing a seamless and reliable
             car rental experience. Since our inception, we have committed to
             offering a diverse fleet of well-maintained vehicles, exceptional

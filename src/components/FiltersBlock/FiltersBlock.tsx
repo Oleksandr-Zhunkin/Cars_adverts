@@ -171,7 +171,7 @@ const FiltersBlock = () => {
   };
 
   return (
-    <div className="mb-[50px] ">
+    <div className="pb-[50px] ">
       <form
         className="flex justify-center items-end w-[100%] gap-[18px]"
         onSubmit={handleSubmit(onSubmit)}
