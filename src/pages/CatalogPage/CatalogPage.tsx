@@ -16,6 +16,7 @@ import {
   selectSearchBrand,
 } from "../../redux/filters/selectors";
 import Loader from "../../components/Loader/Loader";
+import { filtersDataThunk } from "../../redux/filters/operations";
 
 const CatalogPage = () => {
   const page = useSelector(selectPage);
@@ -33,8 +34,10 @@ const CatalogPage = () => {
   };
 
   useEffect(() => {
+    dispatch(filtersDataThunk());
     dispatch(carsThunk(page));
   }, []);
+
   return isLoading ? (
     <Loader />
   ) : (

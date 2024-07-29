@@ -2,8 +2,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import { selectBrands, selectPrices } from "../../redux/filters/selectors";
-import { useEffect, useState } from "react";
-import { filtersDataThunk } from "../../redux/filters/operations";
+import { useState } from "react";
 import { AppDispatch } from "../../redux/store";
 import { FormData } from "./FiltersBlock.types";
 import {
@@ -127,10 +126,6 @@ const FiltersBlock = () => {
   const { register, handleSubmit, reset, control } = useForm<FormData>();
 
   const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(filtersDataThunk());
-  }, []);
 
   const selectedBrands = useSelector(selectBrands);
   const selectedPrices = useSelector(selectPrices);
