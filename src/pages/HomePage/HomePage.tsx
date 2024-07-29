@@ -1,16 +1,18 @@
+import Container from "../../components/Container/Container";
+import Section from "../../components/Section/Section";
 import firstImg from "../../image/1-car.png";
 import secondImg from "../../image/2-car.png";
 
 const HomePage = () => {
   return (
     <>
-      <section className=" py-10 flex h-[531px] ">
+      <section className="flex relative ">
         <img
-          className="absolute left-0 mr-[150px] min-w-[836px]"
+          className="absolute left-[-128px] top-[63px] min-w-[836px]"
           src={firstImg}
           alt="cars"
         />
-        <div className="py-[50px] ml-auto">
+        <div className="ml-auto h-[515px] pt-[113px] mb-[88px] pr-0">
           <h1 className=" font-semibold text-[100px] text-[#121417]  ">
             <span className="text-[#3470ff]">Easy</span> <br /> Rent Car
           </h1>
@@ -20,12 +22,12 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      <section className="py-10 ">
-        <h2 className="font-medium text-[32px] text-[#3470ff] text-center mb-[88px]">
+      <section className=" ">
+        <h2 className="font-medium text-[32px] text-[#3470ff] text-center mb-[88px] max-w-[1184px]">
           OUR MISSION
         </h2>
-        <div className="flex">
-          <p className="font-normal text-[24px] text-[#121417] h-[414px] text-opacity-50 mr-auto min-w-[570px] w-[570px]">
+        <div className="flex min-w-[1184px] relative mb-[88px]">
+          <p className="font-normal text-[24px] text-[#121417] h-[414px] text-opacity-50 mr-auto min-w-[597px] w-[597px] pr-[50px]">
             At Easy Rent, we are dedicated to providing a seamless and reliable
             car rental experience. Since our inception, we have committed to
             offering a diverse fleet of well-maintained vehicles, exceptional
@@ -36,14 +38,14 @@ const HomePage = () => {
             Our goal is to make every ride safe, comfortable, and enjoyable.
           </p>
           <img
-            className="absolute right-0 left-[747px] min-w-[693px]"
+            className="absolute right-[-128px] min-w-[693px]"
             src={secondImg}
             alt="car on the road"
           />
         </div>
       </section>
-      <section className="py-10">
-        <h2 className="font-medium text-[32px] text-[#3470ff] text-center mb-[88px]">
+      <section className="">
+        <h2 className="font-medium text-[32px] text-[#3470ff] text-center mb-[88px] ">
           FAQ
         </h2>
         <div>
