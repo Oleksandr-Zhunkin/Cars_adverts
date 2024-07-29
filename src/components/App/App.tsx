@@ -1,10 +1,15 @@
 import { Navigate, Route, Routes } from "react-router";
-import Layout from "../Layout/Layout";
-import HomePage from "../../pages/HomePage/HomePage";
-import CatalogPage from "../../pages/CatalogPage/CatalogPage";
-import FavoritesPage from "../../pages/FavoritesPage/FavoritesPage";
 import "./App.scss";
+
+import Layout from "../Layout/Layout";
 import { Toaster } from "react-hot-toast";
+import { lazy } from "react";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
+const FavoritesPage = lazy(
+  () => import("../../pages/FavoritesPage/FavoritesPage")
+);
 
 function App() {
   return (
